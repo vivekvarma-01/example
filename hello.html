@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Hello</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #f0f0f0;
+        }
+        #hello {
+            position: absolute;
+            font-size: 3em;
+            color: red;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <div id="hello">Hello</div>
+    <script>
+        const hello = document.getElementById('hello');
+        const colors = ['red', 'blue', 'green', 'purple', 'orange', 'pink'];
+        let colorIndex = 0;
+
+        function moveHello() {
+            const x = Math.random() * (window.innerWidth - 200);
+            const y = Math.random() * (window.innerHeight - 100);
+            hello.style.left = x + 'px';
+            hello.style.top = y + 'px';
+
+            // Change color
+            hello.style.color = colors[colorIndex];
+            colorIndex = (colorIndex + 1) % colors.length;
+        }
+
+        setInterval(moveHello, 1000); // Move every second
+    </script>
+</body>
+</html>
+
